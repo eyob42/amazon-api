@@ -14,7 +14,7 @@ router.post('/', async (req, res) => {
     const order = new Order({
       userEmail,
       items: items.map(item => ({
-        productId: item._id || item.id,  // Keep as string, not ObjectId
+        productId: String(item.productId || item.id),  // Keep as string, not ObjectId
         title: item.title,
         price: item.price,
         quantity: item.quantity || item.amount || 1,
