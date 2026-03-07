@@ -8,7 +8,7 @@ router.post('/', async (req, res) => {
     const { userEmail, items, totalAmount, paymentIntentId } = req.body;
     
     
-    console.log('Received order data:', { userEmail, items, total, paymentIntentId });
+    console.log('Received order data:', { userEmail, items, totalAmount, paymentIntentId });
 
     // Create order with simplified schema
     const order = new Order({
@@ -52,6 +52,7 @@ router.get('/', async (req, res) => {
     const orders = await Order.find({}).sort({ createdAt: -1 });
     res.json(orders);
   } catch (error) {
+    console.error('❌ Error saving order:', error);
     res.status(500).json({ error: error.message });
   }
 });
