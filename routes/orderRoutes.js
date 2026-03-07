@@ -17,8 +17,8 @@ router.post('/', async (req, res) => {
         productId: item._id || item.id,  // Keep as string, not ObjectId
         title: item.title,
         price: item.price,
-        quantity: item.amount || 1,
-        imageUrl: item.imageUrl
+        quantity: item.quantity || item.amount || 1,
+        imageUrl: item.imageUrl || item.image
       })),
       totalAmount: totalAmount,
       paymentIntentId,
