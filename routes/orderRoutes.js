@@ -5,7 +5,8 @@ const Order = require('../models/Order');
 // Save a new order after successful payment
 router.post('/', async (req, res) => {
   try {
-    const { userEmail, items, total, paymentIntentId } = req.body;
+    const { userEmail, items, totalAmount, paymentIntentId } = req.body;
+    
     
     console.log('Received order data:', { userEmail, items, total, paymentIntentId });
 
@@ -19,7 +20,7 @@ router.post('/', async (req, res) => {
         quantity: item.amount || 1,
         imageUrl: item.imageUrl
       })),
-      totalAmount: total,
+      totalAmount: totalAmount,
       paymentIntentId,
       status: 'paid'  // ✅ Now 'paid' is valid!
     });
