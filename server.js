@@ -14,6 +14,7 @@ app.use(cors({
   origin: [
     'http://localhost:5173',
     'https://eyob-amazon-clone-2.netlify.app', // Your live site
+    'https://amazon-clone-omega-sage.vercel.app', // vercel
     'https://amazon-api-ld36.onrender.com'
   ],
   credentials: true
